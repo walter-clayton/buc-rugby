@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/51180f5aaa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>BUC RUGBY TRAINING PLAN</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" role="navigation">
+      <header role="banner">
+        <a class="navbar-brand" href="index.html">BUC</a>
+      </header>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="gym.html"><i class="fa fa-dumbbell"></i> Gym <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="domicile.html"><i class="fas fa-home"></i> Domicile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rugby.html"><i class="fas fa-football-ball"></i> Rugby</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <main role="main">
+        <div class="container text-center my-5">
+            <h1 class="my-5 pt-5">YOUR TRAINING</h1>
+            <div class="row  d-flex justify-content-center my-5">
+              <div class="col-md-4 d-flex justify-content-center">
+                <div class="card" style="width: 12rem;">
+                  <div class="card-body">
+                    <i class="fas fa-dumbbell fa-3x"></i>
+                    <h2>
+                      Gym 
+                    </h2>
+                    <a type="button" class="btn btn-warning" href="gym.html">ENTER</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex justify-content-center">
+                <div class="card" style="width: 12rem;">
+                  <div class="card-body text-center">
+                    <i class="fas fa-home fa-3x"></i>
+                    <h2>
+                      Domicile 
+                    </h2>
+                    <a type="button" class="btn btn-warning"  href="domicile.html">ENTER</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex justify-content-center">
+                <div class="card" style="width: 12rem;">
+                  <div class="card-body text-center">
+                    <i class="fas fa-football-ball fa-3x"></i>
+                    <h2>
+                      Rugby 
+                    </h2>
+                    <a type="button" class="btn btn-success"  href="rugby.html">ENTER</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <a class="btn btn-light" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" onclick="calendar()" aria-controls="collapseExample">
+                <div class="card-body d-flex flex-row">
+                  <div class="card-text w-100">
+                    <i class="fas fa-calendar-alt fa-3x card-link"></i>
+                    <h2>
+                      Calendar
+                    </h2>
+                  </div>
+                    <i class="fas fa-angle-right fa-3x card-link ml-auto" id="right_angle"></i>
+                </div>
+                </a>
+            </div>
+              <div class="table-responsive" class="collapse hide" id="collapseExample">
+                <table class="table bg-light">
+                  <thead>
+                    <tr>
+                      <th scope="col" colspan="11">2020-2021</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <th colspan="2">July</th>
+                      <th colspan="4">August</th>
+                      <th colspan="4">September</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">Monday</th>
+                      <td>20</td>
+                      <td>27</td>
+                      <td>3</td>
+                      <td>10</td>
+                      <td>17</td>
+                      <td>24</td>
+                      <td>31</td>
+                      <td>7</td>
+                      <td>14</td>
+                      <td>21</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="rugby_training text-success">Tuesday</th>
+                      <td>21</td>
+                      <td>28</td>
+                      <td>4</td>
+                      <td>11</td>
+                      <td>18</td>
+                      <td>25</td>
+                      <td>1</td>
+                      <td>8</td>
+                      <td>15</td>
+                      <td>22</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="resistance_training text-warning">Wednesday</th>
+                      <td>22</td>
+                      <td>29</td>
+                      <td>5</td>
+                      <td>12</td>
+                      <td>19</td>
+                      <td>26</td>
+                      <td>2</td>
+                      <td>9</td>
+                      <td>16</td>
+                      <td>23</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="rugby_training text-success">Thursday</th>
+                      <td>23</td>
+                      <td>30</td>
+                      <td>6</td>
+                      <td>13</td>
+                      <td>20</td>
+                      <td>27</td>
+                      <td>3</td>
+                      <td>10</td>
+                      <td>17</td>
+                      <td>24</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="resistance_training text-warning">Friday</th>
+                      <td>24</td>
+                      <td>31</td>
+                      <td>7</td>
+                      <td>14</td>
+                      <td>21</td>
+                      <td>28</td>
+                      <td>4</td>
+                      <td>11</td>
+                      <td>18</td>
+                      <td>25</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Saturday</th>
+                      <td>25</td>
+                      <td>1</td>
+                      <td>8</td>
+                      <td>15</td>
+                      <td>22</td>
+                      <td>29</td>
+                      <td>5</td>
+                      <td>12</td>
+                      <td>19</td>
+                      <td>26</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Sunday</th>
+                      <td>26</td>
+                      <td>2</td>
+                      <td>9</td>
+                      <td>16</td>
+                      <td>23</td>
+                      <td>30</td>
+                      <td>6</td>
+                      <td>13</td>
+                      <td>20</td>
+                      <td>27</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <input type="checkbox" aria-label="Checkbox for following text input" onclick="rugby_check()" id="rugby_check" checked="true">
+                        <label for="rugby"> <i class="fas fa-football-ball text-success"></i></label>
+                      </th>
+                      <th scope="row" colspan="3">
+                        <input type="checkbox" class="justify-content-start" aria-label="Checkbox for following text input" onclick="resistance_check()" id="resistance_check" checked="true">
+                        <label for="resistance"> <i class="fas fa-home text-warning"></i> / <i class="fas fa-dumbbell text-warning"></i></label>
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+      </main>
+<script>
+  function resistance_check() {
+    let resistance_check = document.getElementById("resistance_check").checked;
+    let resistance_training = document.getElementsByClassName("resistance_training");
+    let resistance_trainings = [...resistance_training];
+    if (resistance_check == false){
+      resistance_trainings.forEach(e =>
+      e.classList.remove("text-warning"))
+    }
+    else {
+      resistance_trainings.forEach(e =>
+      e.classList.add("text-warning"))
+    }
+  }
+  function rugby_check() {
+    let rugby_check = document.getElementById("rugby_check").checked;
+    let rugby_training = document.getElementsByClassName("rugby_training");
+    let rugby_trainings = [...rugby_training];
+    if (rugby_check == false){
+      rugby_trainings.forEach(e =>
+      e.classList.remove("text-success"))
+    }
+    else {
+      rugby_trainings.forEach(e =>
+      e.classList.add("text-success"))
+    }
+  }
+  function calendar() {
+    if (document.getElementById("right_angle").getAttribute("class") === "fas fa-angle-right fa-3x card-link ml-auto"){
+    document.getElementById("right_angle").setAttribute("class", "fas fa-angle-down fa-3x card-link ml-auto");
+    }
+    else {
+      document.getElementById("right_angle").setAttribute("class", "fas fa-angle-right fa-3x card-link ml-auto");
+    }
+  }
+  </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
