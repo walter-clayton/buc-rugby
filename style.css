@@ -1,8 +1,8 @@
 .bg-orange{
-    background-color: orange;
+    background-color: orange !important;
 }
 .bg-green{
-    background-color: green;
+    background-color: green !important;
 }
 
 /* Extra small devices (phones, 600px and down) */
