@@ -33,7 +33,7 @@
       <main role="main">
         <div class="container text-center my-5">
             <div class="alert alert-danger alert-dismissible fade show pt-5 mt-5" role="alert">
-                <h1 class="display-3">
+                <h1>
                     <strong><i class="fas fa-virus"></i> COVID-19</strong>
                 </h1>
                 <h4 class="my-5"><i class="fas fa-hands-wash"></i> Wash hands before training</h4>
@@ -48,15 +48,15 @@
                   <thead>
                     <tr>
                       <th scope="col">Dates</th>
-                      <td>July and August</td>
+                      <td colspan="4">July and August</td>
                     </tr>
                     <tr>
                       <th scope="col">Frequency</th>
-                      <td>2 x per week</td>
+                      <td colspan="4">2 x per week</td>
                     </tr>
                     <tr>
                       <th scope="col">Intensity</th>
-                      <td>12-20 <a data-toggle="modal" type="button" data-target="#exampleModal"><u>RPE</u></a>
+                      <td colspan="4">12-20 <a data-toggle="modal" type="button" data-target="#exampleModal"><u>RPE</u></a>
                         <!-- Modal -->
                           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
@@ -67,8 +67,9 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">
-                                        <img class="img-thumbnail" src="Borg-RPE.png" alt="Borg RPE scale">
+                                        <img class="rounded mx-auto" src="Borg-RPE.png" alt="Borg RPE scale" width="300" height="300">
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                               </div>
