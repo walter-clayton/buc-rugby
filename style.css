@@ -4,6 +4,9 @@
 .bg-green{
     background-color: green !important;
 }
+.completed{
+    text-decoration: line-through;
+}
 .button{
     border: 1px solid transparent;
     padding: .375rem .75rem;
