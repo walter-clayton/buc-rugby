@@ -38,31 +38,69 @@
       <main role="main">
         <div class="container text-center my-5">
             <h1 class="my-5 pt-5"> <i class="far fa-chart-bar"></i> Stats</h1>
-            <div class="card">
-                <div class="card-body">
-                    <canvas id="myChart" ></canvas>
+            <div class="row justify-content-md-start">
+                <div class="col-6">
+                    <h2>Progession</h2>
+                    <div class="card">
+                        <div class="card-title">
+                            Body Fat
+                        </div>
+                        <div class="card-body">
+                            <canvas id="bodyFat_progression" ></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h2>Comparison</h2>
+                    <div class="card">
+                        <div class="card-title">
+                            Body Fat %
+                        </div>
+                        <div class="card-body">
+                            <canvas id="bodyFat_comparison" ></canvas>
+                        </div>
+                        <div class="card-footer">
+                         <a href="references.html" target="_blank" rel="noopener noreferrer">(Posthumus et al., 2020)</a> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
       </main>
 <script>
-    var ctx = document.getElementById('myChart');
-    var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx = document.getElementById('bodyFat_comparison');
+    var ctx = document.getElementById('bodyFat_comparison').getContext('2d');
     var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
-        labels: ['2019', '2020'],
+        labels: ['Forwards', 'Backs'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19],
+            label: ['BUC'],
+            data: [23.3, 18.7],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 0, 0, 0.2)',
+                'rgba(255, 0, 0, 0.2)',
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
+                'rgba(255, 0, 0, 1)',
+                'rgba(255,0, 0, 1)',
             ],
             borderWidth: 1
-        }]
+        },
+        {
+            label: ['ELITE'],
+            data: [17.8, 14.8],
+            backgroundColor: [
+                'rgba(0,0,255, 0.2)',
+                'rgba(0,0,255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0, 0,255, 1)',
+                'rgba(0, 0,255, 1)',
+            ],
+            borderWidth: 1
+        },
+        ]
     },
     options: {
         scales: {
