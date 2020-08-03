@@ -40,44 +40,8 @@
             <h1 class="my-5 pt-5"> <i class="far fa-chart-bar"></i> Stats</h1>
             <div class="row justify-content-md-start">
                 <div class="col-md-6">
-                    <h2>Progession</h2>
-                    <div class="card">
-                        <div class="card-title">
-                            Body Fat
-                        </div>
-                        <div class="card-body">
-                            <canvas id="bodyFat_progression" ></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h2>Comparison</h2>
-                    <div class="card">
-                        <div class="card-title">
-                            Body Fat %
-                        </div>
-                        <div class="card-body">
-                            <canvas id="bodyFat_comparison" ></canvas>
-                        </div>
-                        <div class="card-footer">
-                         <a href="references.html" target="_blank" rel="noopener noreferrer">(Posthumus et al., 2020)</a> 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h2>Progession</h2>
-                    <div class="card">
-                        <div class="card-title">
-                            Body Fat
-                        </div>
-                        <div class="card-body">
-                            <canvas id="bodyFat_progression" ></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
                   <div class="card">
-                    <a class="btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" onclick="calendar()" aria-controls="collapseExample">
+                    <a class="btn" data-toggle="collapse" href="#comparison" role="button" aria-expanded="false" onclick="calendar()" aria-controls="comparison">
                       <div class="card-body d-flex flex-row">
                         <div class="card-text w-100">
                           <image class="icon_comparison" src="icon_comparison.svg"></image>
@@ -87,42 +51,108 @@
                       </div>
                     </a>
                   </div>
-                    <div class="card">
-                        <div class="card-title">
-                            Body Fat %
+                    <div class="collapse my-5" id="comparison">
+                        <div class="card">
+                            <div class="card-title">
+                                <h3>Body Fat %</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="bodyFat_comparison" ></canvas>
+                            </div>
+                            <div class="card-footer">
+                            <a href="references.html" target="_blank" rel="noopener noreferrer">(Posthumus et al., 2020)</a> 
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <canvas id="bodyFat_comparison" ></canvas>
+                        <div class="card my-5">
+                            <div class="card-title">
+                                <h3>Body Mass (kg)</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="body_mass_comparison" ></canvas>
+                            </div>
+                            <div class="card-footer">
+                            <a href="references.html" target="_blank" rel="noopener noreferrer">(Posthumus et al., 2020)</a> 
+                            </div>
                         </div>
-                        <div class="card-footer">
-                         <a href="references.html" target="_blank" rel="noopener noreferrer">(Posthumus et al., 2020)</a> 
+                        <div class="card my-5">
+                            <div class="card-title">
+                                <h3>Height (cm)</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="height_comparison" ></canvas>
+                            </div>
+                            <div class="card-footer">
+                            <a href="references.html" target="_blank" rel="noopener noreferrer">(Posthumus et al., 2020)</a> 
+                            </div>
+                        </div>
+                        <div class="card my-5">
+                            <div class="card-title">
+                                <h3>10m Sprint</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="ten_meter_comparison" ></canvas>
+                            </div>
+                            <div class="card-footer">
+                            <a href="references.html" target="_blank" rel="noopener noreferrer">(Smart, 2011)</a> 
+                            </div>
+                        </div>
+                        <div class="card my-5">
+                            <div class="card-title">
+                                <h3>20m Sprint</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="twenty_meter_comparison"></canvas>
+                            </div>
+                            <div class="card-footer">
+                                <p>* Data not currently available for elite backs</p>
+                            <a href="references.html" target="_blank" rel="noopener noreferrer">(Smart, 2011)</a> 
+                            </div>
+                        </div>
+                        <div class="card my-5">
+                            <div class="card-title">
+                                <h3>30m Sprint</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="thirty_meter_comparison"></canvas>
+                            </div>
+                            <div class="card-footer">
+                                <p>* Data not currently available for elite forwards</p>
+                            <a href="references.html" target="_blank" rel="noopener noreferrer">(Smart, 2011)</a> 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <h2>Progession</h2>
+                  </div>
+                  <div class="col-md-6">
                     <div class="card">
-                        <div class="card-title">
-                            Body Fat
+                        <a class="btn" data-toggle="collapse" href="#progression" role="button" aria-expanded="false" onclick="calendar()" aria-controls="progression">
+                          <div class="card-body d-flex flex-row">
+                            <div class="card-text w-100">
+                                <image class="icon_comparison" src="progress_bar.svg"></image>
+                                <h2>Progression</h2>
+                            </div>
+                              <i class="fas fa-angle-right fa-3x card-link ml-auto" id="right_angle"></i>
+                          </div>
+                        </a>
+                    </div>
+                    <div class="collapse my-5" id="progression">
+                        <div class="card">
+                            <div class="card-title">
+                                <h3>Body Fat (%)</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="bodyFat_progression" ></canvas>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <canvas id="bodyFat_progression" ></canvas>
+                        <div class="card">
+                            <div class="card-title">
+                                <h3>Body Mass (kg))</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="body_mass_progression" ></canvas>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <h2>Comparison</h2>
-                    <div class="card">
-                        <div class="card-title">
-                            Body Fat %
-                        </div>
-                        <div class="card-body">
-                            <canvas id="bodyFat_comparison" ></canvas>
-                        </div>
-                        <div class="card-footer">
-                         <a href="references.html" target="_blank" rel="noopener noreferrer">(Posthumus et al., 2020)</a> 
-                        </div>
-                    </div>
+                  </div>
                 </div>
             </div>
         </div>
@@ -130,15 +160,35 @@
 <script>
     var ctx = document.getElementById('bodyFat_comparison');
     var ctx = document.getElementById('bodyFat_comparison').getContext('2d');
-    function Fitness(height, body_mass, fat_percentage){
+    var ctx2 = document.getElementById('body_mass_comparison');
+    var ctx2 = document.getElementById('body_mass_comparison').getContext('2d');
+    var ctx3 = document.getElementById('height_comparison');
+    var ctx3 = document.getElementById('height_comparison').getContext('2d');
+    var ctx4 = document.getElementById('ten_meter_comparison');
+    var ctx4 = document.getElementById('ten_meter_comparison').getContext('2d');
+    var ctx5 = document.getElementById('twenty_meter_comparison');
+    var ctx5 = document.getElementById('twenty_meter_comparison').getContext('2d');
+    var ctx6 = document.getElementById('thirty_meter_comparison');
+    var ctx6 = document.getElementById('thirty_meter_comparison').getContext('2d');
+    var ctx7 = document.getElementById('bodyFat_progression');
+    var ctx7 = document.getElementById('bodyFat_progression').getContext('2d');
+    var ctx8 = document.getElementById('body_mass_progression');
+    var ctx8 = document.getElementById('body_mass_progression').getContext('2d');
+    function Fitness(height, body_mass, fat_percentage, ten_meter, twenty_meter, thirty_meter, fat_percentage2, height2, body_mass2){
       this.height = height;
       this.body_mass = body_mass;
       this.fat_percentage = fat_percentage;
+      this.ten_meter = ten_meter;
+      this.twenty_meter = twenty_meter;
+      this.thirty_meter = thirty_meter;
+      this.fat_percentage2 = fat_percentage2;
+      this.height2 = height2;
+      this.body_mass2 = body_mass2;
     }
-    var elite_backs = new Fitness(183, 96, 15);
-    var elite_forwards = new Fitness(191, 116.5, 18);
-    var buc_backs = new Fitness(180,79, 19);
-    var buc_forwards = new Fitness(185, 98, 23);
+    var elite_backs = new Fitness(183, 96, 15, 1.69, 0, 4.04);
+    var elite_forwards = new Fitness(191, 116.5, 18, 1.78, 3.07, 0);
+    var buc_backs = new Fitness(179.8,78, 17.5, 1.985, 3.21, 4.375, 18.7, 179.8, 78.9);
+    var buc_forwards = new Fitness(179.2, 85.7, 21.2, 2.096, 3.172, 4.552, 23.3, 184.5, 98.3);
     var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -178,6 +228,304 @@
                     beginAtZero: true
                 }
             }]
+        }
+    }
+});
+    var myChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ['Forwards', 'Backs'],
+        datasets: [{
+            label: ['BUC'],
+            data: [buc_forwards.body_mass, buc_backs.body_mass],
+            backgroundColor: [
+                'rgba(255, 0, 0, 0.2)',
+                'rgba(255, 0, 0, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(255,0, 0, 1)',
+            ],
+            borderWidth: 1
+        },
+        {
+            label: ['ELITE'],
+            data: [elite_forwards.body_mass, elite_backs.body_mass],
+            backgroundColor: [
+                'rgba(0,0,255, 0.2)',
+                'rgba(0,0,255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0, 0,255, 1)',
+                'rgba(0, 0,255, 1)',
+            ],
+            borderWidth: 1
+        },
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+    var myChart3 = new Chart(ctx3, {
+    type: 'bar',
+    data: {
+        labels: ['Forwards', 'Backs'],
+        datasets: [{
+            label: ['BUC'],
+            data: [buc_forwards.height, buc_backs.height],
+            backgroundColor: [
+                'rgba(255, 0, 0, 0.2)',
+                'rgba(255, 0, 0, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(255,0, 0, 1)',
+            ],
+            borderWidth: 1
+        },
+        {
+            label: ['ELITE'],
+            data: [elite_forwards.height, elite_backs.height],
+            backgroundColor: [
+                'rgba(0,0,255, 0.2)',
+                'rgba(0,0,255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0, 0,255, 1)',
+                'rgba(0, 0,255, 1)',
+            ],
+            borderWidth: 1
+        },
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+    var myChart4 = new Chart(ctx4, {
+    type: 'bar',
+    data: {
+        labels: ['Forwards', 'Backs'],
+        datasets: [{
+            label: ['BUC'],
+            data: [buc_forwards.ten_meter, buc_backs.ten_meter],
+            backgroundColor: [
+                'rgba(255, 0, 0, 0.2)',
+                'rgba(255, 0, 0, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(255,0, 0, 1)',
+            ],
+            borderWidth: 1
+        },
+        {
+            label: ['ELITE'],
+            data: [elite_forwards.ten_meter, elite_backs.ten_meter],
+            backgroundColor: [
+                'rgba(0,0,255, 0.2)',
+                'rgba(0,0,255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0, 0,255, 1)',
+                'rgba(0, 0,255, 1)',
+            ],
+            borderWidth: 1
+        },
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+    var myChart5 = new Chart(ctx5, {
+    type: 'bar',
+    data: {
+        labels: ['Forwards', 'Backs'],
+        datasets: [{
+            label: ['BUC'],
+            data: [buc_forwards.twenty_meter, buc_backs.twenty_meter],
+            backgroundColor: [
+                'rgba(255, 0, 0, 0.2)',
+                'rgba(255, 0, 0, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(255,0, 0, 1)',
+            ],
+            borderWidth: 1
+        },
+        {
+            label: ['ELITE'],
+            data: [elite_forwards.twenty_meter, elite_backs.twenty_meter],
+            backgroundColor: [
+                'rgba(0,0,255, 0.2)',
+                'rgba(0,0,255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0, 0,255, 1)',
+                'rgba(0, 0,255, 1)',
+            ],
+            borderWidth: 1
+        },
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+    var myChart6 = new Chart(ctx6, {
+    type: 'bar',
+    data: {
+        labels: ['Forwards', 'Backs'],
+        datasets: [{
+            label: ['BUC'],
+            data: [buc_forwards.thirty_meter, buc_backs.thirty_meter],
+            backgroundColor: [
+                'rgba(255, 0, 0, 0.2)',
+                'rgba(255, 0, 0, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 0, 0, 1)',
+                'rgba(255,0, 0, 1)',
+            ],
+            borderWidth: 1
+        },
+        {
+            label: ['ELITE'],
+            data: [elite_forwards.thirty_meter, elite_backs.thirty_meter],
+            backgroundColor: [
+                'rgba(0,0,255, 0.2)',
+                'rgba(0,0,255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0, 0,255, 1)',
+                'rgba(0, 0,255, 1)',
+            ],
+            borderWidth: 1
+        },
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+    var myChart7 = new Chart(ctx7, {
+    type: 'line',
+    data: {
+        labels: ['2019', '2020'],
+        datasets: [{
+            label: ['FORWARDS'],
+            data: [buc_forwards.fat_percentage2, buc_forwards.fat_percentage],
+            backgroundColor: [
+                'rgba(0, 255, 0, 0.2)',
+                'rgba(0, 255, 0, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0, 255, 0, 1)',
+                'rgba(0,255, 0, 1)',
+            ],
+            borderWidth: 2,
+            fill: false
+        },
+        {
+            label: ['BACKS'],
+            data: [buc_backs.fat_percentage2, buc_backs.fat_percentage],
+            backgroundColor: [
+                'rgba(82,5,117, 0.2)',
+                'rgba(82,5,117, 0.2)',
+            ],
+            borderColor: [
+                'rgba(82,5,117, 1)',
+                'rgba(82,5,117, 1)',
+            ],
+            borderWidth: 2,
+            fill: false
+        },
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+    var myChart8 = new Chart(ctx8, {
+    type: 'line',
+    data: {
+        labels: ['2019', '2020'],
+        datasets: [{
+            label: ['FORWARDS'],
+            data: [buc_forwards.body_mass2, buc_forwards.body_mass],
+            backgroundColor: [
+                'rgba(0, 255, 0, 0.2)',
+                'rgba(0, 255, 0, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0, 255, 0, 1)',
+                'rgba(0,255, 0, 1)',
+            ],
+            borderWidth: 2,
+            fill: false
+        },
+        {
+            label: ['BACKS'],
+            data: [buc_backs.body_mass2, buc_backs.body_mass],
+            backgroundColor: [
+                'rgba(82,5,117, 0.2)',
+                'rgba(82,5,117, 0.2)',
+            ],
+            borderColor: [
+                'rgba(82,5,117, 1)',
+                'rgba(82,5,117, 1)',
+            ],
+            borderWidth: 2,
+            fill: false
+        },
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+            }],
         }
     }
 });
