@@ -41,7 +41,7 @@
             <div class="row justify-content-md-start">
                 <div class="col-md-6">
                   <div class="card">
-                    <a class="btn" data-toggle="collapse" href="#comparison" role="button" aria-expanded="false" onclick="calendar()" aria-controls="comparison">
+                    <a class="btn" data-toggle="collapse" href="#comparison" role="button" aria-expanded="false" onclick="collapse()" aria-controls="comparison">
                       <div class="card-body d-flex flex-row">
                         <div class="card-text w-100">
                           <image class="icon_comparison" src="icon_comparison.svg"></image>
@@ -124,18 +124,18 @@
                   </div>
                   <div class="col-md-6">
                     <div class="card">
-                        <a class="btn" data-toggle="collapse" href="#progression" role="button" aria-expanded="false" onclick="calendar()" aria-controls="progression">
+                        <a class="btn" data-toggle="collapse" href="#progression" role="button" aria-expanded="false" onclick="collapse2()" aria-controls="progression">
                           <div class="card-body d-flex flex-row">
                             <div class="card-text w-100">
                                 <image class="icon_comparison" src="progress_bar.svg"></image>
                                 <h2>Progression</h2>
                             </div>
-                              <i class="fas fa-angle-right fa-3x card-link ml-auto" id="right_angle"></i>
+                              <i class="fas fa-angle-right fa-3x card-link ml-auto" id="right_angle2"></i>
                           </div>
                         </a>
                     </div>
                     <div class="collapse my-5" id="progression">
-                        <div class="card">
+                        <div class="card my-5">
                             <div class="card-title">
                                 <h3>Body Fat (%)</h3>
                             </div>
@@ -143,12 +143,20 @@
                                 <canvas id="bodyFat_progression" ></canvas>
                             </div>
                         </div>
-                        <div class="card">
+                        <div class="card my-5">
                             <div class="card-title">
-                                <h3>Body Mass (kg))</h3>
+                                <h3>Body Mass (kg)</h3>
                             </div>
                             <div class="card-body">
                                 <canvas id="body_mass_progression" ></canvas>
+                            </div>
+                        </div>
+                        <div class="card my-5">
+                            <div class="card-title">
+                                <h3>Height (cm)</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="height_progression" ></canvas>
                             </div>
                         </div>
                     </div>
@@ -174,6 +182,24 @@
     var ctx7 = document.getElementById('bodyFat_progression').getContext('2d');
     var ctx8 = document.getElementById('body_mass_progression');
     var ctx8 = document.getElementById('body_mass_progression').getContext('2d');
+    var ctx9 = document.getElementById('height_progression');
+    var ctx9 = document.getElementById('height_progression').getContext('2d');
+    function collapse() {
+    if (document.getElementById("right_angle").getAttribute("class") === "fas fa-angle-right fa-3x card-link ml-auto"){
+    document.getElementById("right_angle").setAttribute("class", "fas fa-angle-down fa-3x card-link ml-auto");
+    }
+    else {
+      document.getElementById("right_angle").setAttribute("class", "fas fa-angle-right fa-3x card-link ml-auto");
+    }
+  }
+    function collapse2() {
+    if (document.getElementById("right_angle2").getAttribute("class") === "fas fa-angle-right fa-3x card-link ml-auto"){
+    document.getElementById("right_angle2").setAttribute("class", "fas fa-angle-down fa-3x card-link ml-auto");
+    }
+    else {
+      document.getElementById("right_angle2").setAttribute("class", "fas fa-angle-right fa-3x card-link ml-auto");
+    }
+  }
     function Fitness(height, body_mass, fat_percentage, ten_meter, twenty_meter, thirty_meter, fat_percentage2, height2, body_mass2){
       this.height = height;
       this.body_mass = body_mass;
@@ -506,6 +532,50 @@
         {
             label: ['BACKS'],
             data: [buc_backs.body_mass2, buc_backs.body_mass],
+            backgroundColor: [
+                'rgba(82,5,117, 0.2)',
+                'rgba(82,5,117, 0.2)',
+            ],
+            borderColor: [
+                'rgba(82,5,117, 1)',
+                'rgba(82,5,117, 1)',
+            ],
+            borderWidth: 2,
+            fill: false
+        },
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+            }],
+        }
+    }
+});
+    var myChart9 = new Chart(ctx9, {
+    type: 'line',
+    data: {
+        labels: ['2019', '2020'],
+        datasets: [{
+            label: ['FORWARDS'],
+            data: [buc_forwards.height2, buc_forwards.height],
+            backgroundColor: [
+                'rgba(0, 255, 0, 0.2)',
+                'rgba(0, 255, 0, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0, 255, 0, 1)',
+                'rgba(0,255, 0, 1)',
+            ],
+            borderWidth: 2,
+            fill: false
+        },
+        {
+            label: ['BACKS'],
+            data: [buc_backs.height2, buc_backs.height],
             backgroundColor: [
                 'rgba(82,5,117, 0.2)',
                 'rgba(82,5,117, 0.2)',
