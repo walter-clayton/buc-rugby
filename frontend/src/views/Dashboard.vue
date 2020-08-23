@@ -7,7 +7,29 @@
   </b-nav>
   <b-container class="mt-5 bg-dark text-white">
   <Testing />
-  <p>{{ msg }}</p>
+  <br><br>
+      <table class="table table-hover text-white">
+      <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col"></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(test, index) in tests" :key="index">
+          <td>{{ test.firstName }}</td>
+          <td>{{ test.lastName }}</td>
+          <td>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-warning btn-sm">Update</button>
+              <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </b-container>
 </div>
   </div>
@@ -24,7 +46,7 @@ export default {
   },
   data() {
     return {
-      msg: '',
+      tests: [],
     };
   },
     methods: {
@@ -32,7 +54,7 @@ export default {
       const path = 'http://localhost:5000/';
       axios.get(path)
         .then((res) => {
-          this.msg = res.data;
+          this.tests = res.data.tests;
         })
         .catch((error) => {
           // eslint-disable-next-line
