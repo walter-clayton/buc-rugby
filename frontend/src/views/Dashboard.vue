@@ -7,6 +7,7 @@
   </b-nav>
   <b-container class="mt-5 bg-dark text-white">
   <br><br>
+  <alert :message="message" v-if="showMessage"/>
     <button type="button" class="btn btn-success btn-sm" v-b-modal.modal-1>Add Data</button>
         <b-modal id="modal-1" title="Testing Data" hide-footer>
     <b-form @submit="onSubmit" @reset="onReset" >
@@ -62,10 +63,12 @@
 
 <script>
 import axios from 'axios';
+import Alert from '@/components/modules/Alert.vue';
 
 export default {
   name: "Home",
   components: {
+    alert: Alert,
   },
   data() {
     return {
@@ -74,6 +77,8 @@ export default {
         firstName: '',
         lastName: ''
       },
+      message: '',
+      showMessage: false,
     };
   },
   methods: {
@@ -98,6 +103,8 @@ export default {
       axios.post(path, payload)
         .then(() => {
           this.getTests();
+          this.message = 'Data added!';
+          this.showMessage = true;
         })
         .catch((error) => {
           // eslint-disable-next-line
