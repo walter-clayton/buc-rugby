@@ -13,3 +13,8 @@ $ source env/bin/activate
 or 
 (env)$ python app.py
 
+### Data migragtion
+```
+(env)$ python manage.py migrate
+or 
+(env)$ python manage.py makemigration
