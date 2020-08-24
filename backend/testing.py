@@ -1,4 +1,4 @@
-tests = [
+TESTS = [
     {"date":"23 Jul 2020, 20:32","firstName":"Gilles","lastName":"Tiest","bodyFat":"19.5","bodyMass":"79.2","height":"176","position":"10","tenSprint":"1.86","thirtySprint":"4.54","twentySprint":""},
     {"date":"23 Jul 2020, 20:37","firstName":"Alexandre","lastName":"Decoux","bodyFat":"10.5","bodyMass":"70","height":"180","position":"15,10,11,14","tenSprint":"1.86","thirtySprint":"4.02","twentySprint":""},
     {"date":"23 Jul 2020, 20:44","firstName":"Kevin","lastName":"Nguyen","bodyFat":"19.5","bodyMass":"72.7","height":"175","position":"9","tenSprint":"1.96","thirtySprint":"4.44","twentySprint":""},
