@@ -1,14 +1,20 @@
+import os
 import uuid
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from testing import TESTS
+from flask_sqlalchemy import SQLAlchemy
 
 # configuration
 DEBUG = True
 
 # instantiate the app
 app = Flask(__name__)
-app.config.from_object(__name__)
+app.config.from_object(os.environ['APP_SETTINGS'])
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+# from models import Test
 
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
@@ -21,7 +27,7 @@ def remove_test(test_id):
     return False
 
 # sanity check route
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/dashboard', methods=['GET', 'POST'])
 def get_tests():
     response_object = {'status': 'success'}
     if request.method == 'POST':

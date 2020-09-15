@@ -1,20 +1,44 @@
 # backend
 
+## Update requirements
+```
+python -m pip freeze > requirements.txt
+```
+
 ## Project setup
 ```
 $ python3.7 -m venv env
+$ export FLASK_APP=app.py
 $ source env/bin/activate
-(env)$ pip install Flask==1.0.2 Flask-Cors==3.0.7
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 (env)$ flask run
 or 
 (env)$ python app.py
+```
 
 ### Data migragtion
+
 ```
 (env)$ python manage.py migrate
 or 
 (env)$ python manage.py makemigration
+```
+
+### POSTGRESQL
+```
+sudo -u postgres psql
+
+\l
+
+\c mydatabase
+
+\d table_name
+```
+### SQLALCHEMY
+```
+python
+```
