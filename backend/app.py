@@ -1,24 +1,53 @@
 import os
 import uuid
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from testing import TESTS
 from flask_sqlalchemy import SQLAlchemy
+from flask_script import Manager
+from flask_migrate import Migrate, MigrateCommand
+from models import db, InfoModel
+
+MIGRATION_DIR = os.path.join('models', 'migrations')
 
 # configuration
 DEBUG = True
 
 # instantiate the app
 app = Flask(__name__)
-app.config.from_object(os.environ['APP_SETTINGS'])
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
 
-# from models import Test
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://walter:secure@localhost/mydatabase'
+db.init_app(app)
+# app.config.from_object(os.environ['APP_SETTINGS'])
+db.init_app(app)
+migrate = Migrate(app, db, directory=MIGRATION_DIR)
+
+
+@app.route('/form')
+def form():
+    return render_template('form.html')
+
+@app.route('/login', methods = ['POST', 'GET'])
+def login():
+    if request.method == 'GET':
+        return "Login via the login Form"
+     
+    if request.method == 'POST':
+        firstName = request.form['firstName']
+        lastName = request.form['lastName']
+        new_user = InfoModel(firstName=firstName, lastName=lastName)
+        db.session.add(new_user)
+        db.session.commit()
+        return f"Done!!"
+
+@app.route("/list")
+def list():
+    lists=db.execute("SELECT * FROM info_table order by id")
+    return render_template('list.html',lists=lists)
 
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
-
 def remove_test(test_id):
     for test in TESTS:
         if test['id'] == test_id:
@@ -60,4 +89,4 @@ def single_test(test_id):
     return jsonify(response_object)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
