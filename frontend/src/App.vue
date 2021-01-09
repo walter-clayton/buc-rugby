@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <NavBarTop />
+    <Tabs />
     <router-view />
   </div>
 </template>
 
 <script>
 import NavBarTop from "@/components/NavBarTop.vue";
-
+import Tabs from "@/components/Tabs.vue";
 export default {
   name: "App",
   components: {
-    NavBarTop
+    NavBarTop,
+    Tabs
   }
 };
 </script>

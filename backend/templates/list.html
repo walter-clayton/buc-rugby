@@ -1,32 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/51180f5aaa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>BUC RUGBY TRAINING PLAN</title>
-</head>
-<body class="bg-light">
-WELL DONE
+{% extends 'layout.html' %}
+
+{% block header %}
+  <h1>{% block title %}Register{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-      </tr>
-    </thead>
-      {% for list in lists %}
-      <tr>
-      <th scope="row">{{list.id}}</th>
-      <td>{{list.firstName}}
-      </td>
-      <td>{{list.lastName}}
-      </td>
-      </tr>
-      {% endfor %}
-  </table>
-</body>
-</html>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+    </tr>
+  </thead>
+    {% for list in lists %}
+    <tr>
+    <th scope="row">{{list.id}}</th>
+    <td>{{list.firstName}}
+    </td>
+    <td>{{list.lastName}}
+    </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

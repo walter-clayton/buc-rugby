@@ -37,4 +37,4 @@ TESTS = [
     {"id": uuid.uuid4().hex,"date":"13 Aug 2020, 21:00","firstName":"Cecilien","lastName":"Helfter","bodyFat":"25.3","bodyMass":"79.2","height":"168","position":"7","tenSprint":"2","thirtySprint":"4.9","twentySprint":"3.6"},
     {"id": uuid.uuid4().hex,"date":"13 Aug 2020, 21:08","firstName":"Mark","lastName":"de Raad","bodyFat":"23.5","bodyMass":"95.7","height":"192","position":"7","tenSprint":"1.86","thirtySprint":"4.9","twentySprint":"3.78"},
     {"id": uuid.uuid4().hex,"date":"13 Aug 2020, 21:14","firstName":"Olivier","lastName":"Herssens","bodyFat":"29.5","bodyMass":"97.6","height":"175","position":"1,2,3","tenSprint":"1.94","thirtySprint":"4.66","twentySprint":"3.36"}
-    ]
+]

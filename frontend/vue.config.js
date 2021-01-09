@@ -1,11 +1,18 @@
 module.exports = {
 	devServer: {
 		proxy: {
-			'^/': {
-				target: 'http://127.0.0.1:8000',
+			'^/dashboard': {
+				target: 'http://127.0.0.1:5000/',
 				ws: true,
 				changeOrigin: true,
+				logLevel: 'debug'
 			},
-		}
-    }
+			'^/alldata': {
+				target: 'http://127.0.0.1:5000/',
+				ws: true,
+				changeOrigin: true,
+				logLevel: 'debug'
+			},
+		},
+	},
 }
