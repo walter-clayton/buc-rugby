@@ -6,7 +6,7 @@ from models import db, Test
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://walter:secure@localhost/mydatabase'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://walterclayton:secure@localhost/mydatabase'
 
 db = SQLAlchemy(app)
 

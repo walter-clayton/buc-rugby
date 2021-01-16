@@ -79,8 +79,8 @@ print (sql_string)
 try:
     # declare a new PostgreSQL connection object
     conn = connect(
-        dbname = "mydatabase",
-        user = "postgres",
+        dbname = "postgres",
+        user = "walterclayton",
         host = "localhost",
         password = "spongei94",
         # attempt to connect for 3 seconds then raise exception

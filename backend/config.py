@@ -1,7 +1,7 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-DB_URL = 'postgresql+psycopg2://walter:secure@localhost/mydatabase'
+DB_URL = 'postgresql+psycopg2://walterclayton:secure@localhost/mydatabase'
 
 class Config(object):
     DEBUG = False
