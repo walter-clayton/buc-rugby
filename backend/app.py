@@ -41,7 +41,6 @@ def remove_test(test_id):
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('list'))
     return render_template('form.html', title='Register', form=form)
 

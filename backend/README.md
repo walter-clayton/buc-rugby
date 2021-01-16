@@ -2,12 +2,14 @@
 
 ## Update requirements
 ```
-python -m pip freeze > requirements.txt
+$ python -m pip freeze > requirements.txt
+$ pip install -r requirements.txt 
 ```
 
 ## Project setup
 ```
-$ python3.7 -m venv env
+$ python3 -m pip install --user virtualenv
+$ python3 -m venv env
 $ export FLASK_APP=app.py
 $ source env/bin/activate
 ```
