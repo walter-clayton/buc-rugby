@@ -1,31 +1,26 @@
-import os
 import uuid
-import json, sys
-from flask import Flask, jsonify, request, render_template, flash, redirect
+# import json, sys
+from flask import jsonify, request, render_template, flash, redirect, url_for
+from .forms import RegistrationForm, LoginForm
+from backend import app
+from backend.models import User, Post
 from flask_cors import CORS
-from testing import TESTS
-from forms import RegistrationForm, LoginForm
-from flask_sqlalchemy import SQLAlchemy
-from flask_script import Manager
-from flask_migrate import Migrate, MigrateCommand
-from models import db, InfoModel
-from psycopg2 import connect, Error
-from psycopg2.extras import Json
-from psycopg2.extras import json as psycop_json
+from .testing import TESTS
 
-MIGRATION_DIR = os.path.join('models', 'migrations')
-
-# configuration
-DEBUG = True
-
-# instantiate the app
-app = Flask(__name__)
-app.config.from_object(__name__)
-app.config['SECRET_KEY'] = '4ab17c344aa9779f50807c218a838d17'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://walter:secure@localhost/mydatabase'
-db.init_app(app)
-migrate = Migrate(app, db, directory=MIGRATION_DIR)
+posts = [
+    {
+        'author': 'Corey Schafer',
+        'title': 'Blog Post 1',
+        'content': 'First post content',
+        'date_posted': 'April 20, 2018'
+    },
+    {
+        'author': 'Jane Doe',
+        'title': 'Blog Post 2',
+        'content': 'Second post content',
+        'date_posted': 'April 21, 2018'
+    }
+]
 
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
@@ -41,21 +36,24 @@ def remove_test(test_id):
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        return redirect(url_for('list'))
-    return render_template('form.html', title='Register', form=form)
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('home'))
+    return render_template('register.html', title='Register', form=form)
 
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
-    if request.method == 'GET':
-        return "Login via the login Form"
-     
-    if request.method == 'POST':
-        firstName = request.form['firstName']
-        lastName = request.form['lastName']
-        new_user = InfoModel(firstName=firstName, lastName=lastName)
-        db.session.add(new_user)
-        db.session.commit()
-        return f"Done!!"
+    form = LoginForm()
+    if form.validate_on_submit():
+        if form.email.data == 'w@blog.com' and form.password.data == 'w':
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessful. Please check username and password', 'danger')
+    return render_template('login.html', title='Login', form=form)
+
+@app.route('/home')
+def home():
+    return render_template('home.html', posts=posts)
 
 @app.route("/list")
 def list():
@@ -144,6 +142,3 @@ def all_Tests():
         remove_test(test_id)
         response_object['message'] = 'Tests removed!'
     return jsonify(response_object)
-
-if __name__ == '__main__':
-    app.run(debug=True)
