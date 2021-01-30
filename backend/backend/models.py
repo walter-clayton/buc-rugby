@@ -6,21 +6,26 @@ from sqlalchemy import Column, String
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 import uuid
-from flask_migrate import Migrate, MigrateCommand
+# from flask_migrate import Migrate, MigrateCommand
 # from models import db, InfoModel
 from psycopg2 import connect, Error
 from psycopg2.extras import Json
 from psycopg2.extras import json as psycop_json
-from backend import db
+from backend import db, login_manager
+from flask_login import UserMixin
 
 # db = SQLAlchemy()
 
-class User(db.Model):
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
-    password = db.Column(db.String(60), nullable=False)
+    password = db.Column(db.String(120), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
