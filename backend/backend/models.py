@@ -11,8 +11,9 @@ from flask_migrate import Migrate, MigrateCommand
 from psycopg2 import connect, Error
 from psycopg2.extras import Json
 from psycopg2.extras import json as psycop_json
+from backend import db
 
-db = SQLAlchemy()
+# db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,7 +24,7 @@ class User(db.Model):
     posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"{self.username}, {self.email}, {self.image_file}"
+        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -1,11 +1,14 @@
-import uuid
 # import json, sys
 from flask import jsonify, request, render_template, flash, redirect, url_for
+from backend import app, db
 from .forms import RegistrationForm, LoginForm
-from backend import app
-from backend.models import User, Post
+from .models import User, Post
 from flask_cors import CORS
 from .testing import TESTS
+import uuid
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt(app)
 
 posts = [
     {
@@ -36,8 +39,12 @@ def remove_test(test_id):
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('home'))
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash('Your account has been created, you are now able to log in', 'success')
+        return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
 @app.route('/login', methods = ['POST', 'GET'])
