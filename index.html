@@ -38,6 +38,30 @@
       </nav>
       <main role="main">
         <div class="container text-center my-5">
+          <div class="container text-center my-5">
+            <div class="jumbotron">
+              <h1 class="display-4">FEBRUARY CHALLENGE</h1>
+              <p class="lead" id="today"></p>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  No alchohol
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Running 4x/week
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                 Push ups/day
+                </label>
+              </div>
+            </div>
+            </div>
             <h1 class="my-5 pt-5">YOUR TRAINING</h1>
             <div class="row  d-flex justify-content-center my-5">
               <div class="col-md-4 d-flex justify-content-center">
@@ -230,7 +254,7 @@
             <a href="https://www.instagram.com/walter.h.clayton/" target="_blank"><i class=" mx-3 fab fa-instagram fa-2x text-secondary" aria-hidden="true"></i> </a>                   
           </div>
       <hr>
-          <span class="text-secondary mx-auto justify-content-center text-align-center"> © 2020 Walter Clayton, All Rights Reserved</span>
+          <span class="text-secondary mx-auto justify-content-center text-align-center"> © 2021 Walter Clayton, All Rights Reserved</span>
       </div> 
   </div>
 </footer>
@@ -269,6 +293,13 @@
       document.getElementById("right_angle").setAttribute("class", "fas fa-angle-right fa-3x card-link ml-auto");
     }
   }
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = dd + '/' + mm + '/' + yyyy;
+    console.log(today);
   </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
