@@ -41,9 +41,10 @@
           <div class="container text-center my-5">
             <div class="jumbotron">
               <h1 class="display-4">FEBRUARY CHALLENGE</h1>
+              <h2 class="display-4"><span id="daysleft" style="color:red;"><b></b></span> days left!</h2>
               <p class="lead" id="today"></p>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <input class=" form-check-input" type="checkbox" value="" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1">
                   No alchohol
                 </label>
@@ -260,8 +261,8 @@
 </footer>
 <script>
 const d = new Date();
-const daysleft = 28 - d.getDay();
-alert(daylefts + "days left!")
+var daysleft = 28 - d.getDay();
+document.getElementById("daysleft").innerHTML = (daysleft);
   function resistance_check() {
     let resistance_check = document.getElementById("resistance_check").checked;
     let resistance_training = document.getElementsByClassName("resistance_training");
