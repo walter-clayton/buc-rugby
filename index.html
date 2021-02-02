@@ -235,6 +235,9 @@
   </div>
 </footer>
 <script>
+const d = new Date();
+const daysleft = 28 - d.getDay();
+alert(daylefts + "days left!")
   function resistance_check() {
     let resistance_check = document.getElementById("resistance_check").checked;
     let resistance_training = document.getElementsByClassName("resistance_training");
