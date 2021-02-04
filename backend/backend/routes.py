@@ -44,6 +44,7 @@ def login():
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
+@app.route('/')
 @app.route('/home')
 def home():
     return render_template('home.html', posts=posts)
