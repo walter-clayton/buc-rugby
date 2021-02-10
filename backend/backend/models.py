@@ -1,12 +1,6 @@
 from datetime import datetime
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.dialects.postgresql import JSON
-from sqlalchemy import Column, String
-from sqlalchemy.orm import relationship
-from psycopg2 import connect, Error
-from psycopg2.extras import Json
-from psycopg2.extras import json as psycop_json
-from backend import db, login_manager
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from backend import db, login_manager, app
 from flask_login import UserMixin
 
 
@@ -21,6 +15,19 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(120), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
+
+    def get_reset_token(self, expires_sec=1800):
+        s = Serializer(app.config['SECRET_KEY'], expires_sec)
+        return s.dumps({'user_id': self.id}).decode('utf-8')
+
+    @staticmethod
+    def verify_reset_token(token):
+        s = Serializer(app.config['SECRET_KEY'])
+        try:
+            user_id = s.loads(token)['user_id']
+        except:
+            return None
+        return User.query.get(user_id)
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.image_file}')"
