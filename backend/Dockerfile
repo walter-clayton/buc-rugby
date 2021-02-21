@@ -18,6 +18,7 @@ RUN set -xe \
     && apk add tiff-dev \
     && apk add tk-dev \
     && apk add zlib-dev \
+    && pip3 freeze -r ./requirements.txt \
     && pip3 install -r ./requirements.txt 
 EXPOSE 5000
 ENTRYPOINT [ "python" ]
