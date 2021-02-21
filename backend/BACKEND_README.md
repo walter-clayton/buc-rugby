@@ -53,4 +53,7 @@ docker build . --tag=part_9
 To run the docker container using the image called 'part_9' requires:
 
 docker run -p 5000:5000 part_9
+
+To run the docker volume
+docker run -p 5000:5000 -v $(pwd):/app docker-volume
 ``` 
