@@ -1,6 +1,7 @@
 FROM python:alpine3.7
 WORKDIR /app
-COPY . /app
+COPY ./.env /app
+COPY ./requirements.txt /app
 RUN set -xe \
     && apk update \
     && apk add --no-cache python3 py3-pip \
@@ -18,7 +19,6 @@ RUN set -xe \
     && apk add tiff-dev \
     && apk add tk-dev \
     && apk add zlib-dev \
-    && pip3 freeze -r ./requirements.txt \
     && pip3 install -r ./requirements.txt 
 EXPOSE 5000
 ENTRYPOINT [ "python" ]
