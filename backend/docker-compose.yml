@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    webserver:
+        build: .
+        ports:
+            - 5000:5000
+        volumes:
+            - .:/app
+
+    database:
+        image: postgres:latest
