@@ -44,7 +44,7 @@ sudo -u postgres psql
 ```
 python
 ``` 
-### SQLALCHEMY
+### DOCKER
 ```
 To build the docker image 'part_9', long as you are in the same directory as the 'Dockerfile', would be:
 
