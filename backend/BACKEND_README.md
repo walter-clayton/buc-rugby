@@ -56,4 +56,7 @@ docker run -p 5000:5000 part_9
 
 To run the docker volume
 docker run -p 5000:5000 -v $(pwd):/app docker-volume
+
+docker-compose down
+docker-compose up
 ``` 
