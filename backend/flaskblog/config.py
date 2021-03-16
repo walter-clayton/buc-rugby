@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 S3_BUCKET=os.getenv('S3_BUCKET')
 S3_KEY=os.getenv('S3_KEY')

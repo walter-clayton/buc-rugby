@@ -3,8 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
-from flaskblog.config import Config, S3_BUCKET, S3_KEY, S3_SECRET
-import boto3 
+from flaskblog.config import Config
+from flaskblog.filters import datetimeformat, file_type
+
 import os
 
 db = SQLAlchemy()
@@ -13,15 +14,12 @@ login_manager = LoginManager()
 login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'info'
 mail = Mail()
-s3 = boto3.client(
-    's3',
-    aws_access_key_id=S3_KEY,
-    aws_secret_access_key=S3_SECRET
-)
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(Config)
+    app.jinja_env.filters['datetimeformat'] = datetimeformat
+    app.jinja_env.filters['file_type'] = file_type
 
     db.init_app(app)
     bcrypt.init_app(app)
