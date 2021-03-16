@@ -4,6 +4,8 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
 from flaskblog.config import Config
+from flaskblog.filters import datetimeformat, file_type
+
 import os
 
 db = SQLAlchemy()
@@ -16,6 +18,8 @@ mail = Mail()
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(Config)
+    app.jinja_env.filters['datetimeformat'] = datetimeformat
+    app.jinja_env.filters['file_type'] = file_type
 
     db.init_app(app)
     bcrypt.init_app(app)
@@ -25,11 +29,13 @@ def create_app(config_class=Config):
     from flaskblog.users.routes import users
     from flaskblog.posts.routes import posts
     from flaskblog.main.routes import main
+    from flaskblog.files.routes import files
     from flaskblog.errors.handlers import errors
 
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(main)
+    app.register_blueprint(files)
     app.register_blueprint(errors)
 
     return app

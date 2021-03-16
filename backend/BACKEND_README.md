@@ -44,7 +44,7 @@ sudo -u postgres psql
 ```
 python
 ``` 
-### SQLALCHEMY
+### DOCKER
 ```
 To build the docker image 'part_9', long as you are in the same directory as the 'Dockerfile', would be:
 
@@ -56,4 +56,7 @@ docker run -p 5000:5000 part_9
 
 To run the docker volume
 docker run -p 5000:5000 -v $(pwd):/app docker-volume
+
+docker-compose down
+docker-compose up
 ``` 
