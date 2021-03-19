@@ -1,0 +1,45 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+bcrypt = "==3.2.0"
+boto3 = "==1.17.24"
+botocore = "==1.20.24"
+cffi = "==1.14.5"
+click = "==7.1.2"
+email-validator = "==1.1.2"
+filelock = "==3.0.12"
+gunicorn = "==20.0.4"
+itsdangerous = "==1.1.0"
+jmespath = "==0.10.0"
+psycopg2-binary = "==2.8.6"
+pycparser = "==2.20"
+python-dateutil = "==2.8.1"
+s3transfer = "==0.3.4"
+six = "==1.15.0"
+urllib3 = "==1.26.3"
+Flask = "==1.1.2"
+Flask-Bcrypt = "==0.7.1"
+Flask-Cors = "==3.0.10"
+Flask-Mail = "==0.9.1"
+Flask-Migrate = "==2.5.3"
+Flask-Login = "==0.5.0"
+Flask-Script = "==2.0.6"
+Flask-SQLAlchemy = "==2.4.4"
+Flask-WTF = "==0.14.3"
+Pillow = "==8.0.0"
+Jinja2 = "==2.11.3"
+MarkupSafe = "==1.1.1"
+SQLAlchemy = "==1.3.23"
+Werkzeug = "==1.0.1"
+WTForms = "==2.3.3"
+python-dotenv = "==0.15.0"
+arrow = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7.3"

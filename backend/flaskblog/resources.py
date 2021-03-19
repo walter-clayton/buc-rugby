@@ -1,5 +1,5 @@
 import boto3
-from flaskblog.config import S3_BUCKET, S3_KEY, S3_SECRET
+from config import S3_BUCKET, S3_KEY, S3_SECRET
 from flask import session
 
 def _get_s3_resource():

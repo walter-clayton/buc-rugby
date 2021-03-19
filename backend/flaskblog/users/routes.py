@@ -1,13 +1,12 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
-from flaskblog import db, bcrypt
-from flaskblog.models import User, Post
-from flaskblog.users.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
-                                   RequestResetForm, ResetPasswordForm)
-from flaskblog.users.utils import save_picture, send_reset_email
+from app import db, bcrypt
+from backend.models import User, Post
+from forms import (RegistrationForm, LoginForm, UpdateAccountForm, \
+                    RequestResetForm, ResetPasswordForm)
+from utils import save_picture, send_reset_email
 
 users = Blueprint('users', __name__)
-
 
 @users.route("/register", methods=['GET', 'POST'])
 def register():
@@ -22,7 +21,6 @@ def register():
         flash('Your account has been created! You are now able to log in', 'success')
         return redirect(url_for('users.login'))
     return render_template('register.html', title='Register', form=form)
-
 
 @users.route("/login", methods=['GET', 'POST'])
 def login():
