@@ -1,4 +1,4 @@
-import os
+import sys, os, inspect
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -6,6 +6,10 @@ from dotenv import load_dotenv
 from flask_login import LoginManager
 from flask_mail import Mail
 from filters import datetimeformat, file_type
+
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0, parentdir)
 
 app = Flask(__name__)
 load_dotenv()
@@ -40,17 +44,17 @@ elif ENV == 'prod':
 app.jinja_env.filters['datetimeformat'] = datetimeformat
 app.jinja_env.filters['file_type'] = file_type
 
-from users.routes import users
-from posts.routes import posts
-from main.routes import main
-from files.routes import files
-from errors.handlers import errors
+from flaskblog.users import routes as userRoutes
+from flaskblog.posts import routes as postsRoutes
+from flaskblog.files import routes as filesRoutes
+from flaskblog.main import routes as mainRoutes
+from flaskblog.errors import handlers as errorsRoutes
 
-app.register_blueprint(users)
-app.register_blueprint(posts)
-app.register_blueprint(main)
-app.register_blueprint(files)
-app.register_blueprint(errors)
+app.register_blueprint(userRoutes)
+app.register_blueprint(postsRoutes)
+app.register_blueprint(mainRoutes)
+app.register_blueprint(filesRoutes)
+app.register_blueprint(errorsRoutes)
 
 if __name__ == '__main__':
     app.run(port=5000, host='0.0.0.0')

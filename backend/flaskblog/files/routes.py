@@ -1,6 +1,6 @@
 from flask import render_template, Blueprint, request, redirect, url_for, flash, \
     Response
-from resources import get_bucket
+from flaskblog.resources import get_bucket
 
 files = Blueprint('files', __name__)
 
