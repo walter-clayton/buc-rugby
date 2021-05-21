@@ -2,7 +2,7 @@ alembic==1.4.3
 altgraph==0.17
 appdirs==1.4.4
 asgiref==3.3.1
-bcrypt==3.2.0
+bcrypt==3.1.2
 cffi==1.14.4
 click==7.1.2
 distlib==0.3.1
